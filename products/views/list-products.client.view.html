@@ -1,0 +1,51 @@
+<section data-ng-controller="ProductsController" data-ng-init="find()">
+	<nav class="navbar navbar-default" role="navigation" style="background-color:black">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://localhost:3000/#!/"><font color="white">Advocate of Choice</font></a>
+		</div>
+		<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+      
+			<ul class="nav navbar-nav">
+				<li><a href="http://localhost:3000/#!/products"><font color="white">Products</font></a></li>
+				<li><a href="http://localhost:3000/#!/library"><font color="white">Library</font></a></li>
+				
+				<li>
+					<a href="http://www.beingspecialnyc.com/"><font color="white">Home</font></a>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li data-ng-show="!authentication.user"><a href="/signup"><font color="white">Signup</font></a></li>
+				<li data-ng-show="!authentication.user"><a href="/signin"><font color="white">Signin</font></a></li>
+				
+				<li data-ng-show="authentication.user"><a href="/signout">Signout</a></li>
+			</ul>
+		</div>
+	</nav>
+	<h1 style="margin-left:100px;">Products</h1>
+	<br>
+	<form action="http://localhost:3000/#!/products/create" style="margin-left:100px;">
+		<input type="submit" value="Add Product">
+	</form>
+	<br>
+	<ul style="margin-left:100px;">
+		<li data-ng-repeat="product in products" style="list-style-type: none;">
+			<a data-ng-href="#!/products/{{product._id}}" data-ng-bind="product.name"></a>
+			<br>
+			<small data-ng-bind="product.created | date:'medium'"></small>
+			<small>/</small>
+			<small data-ng-bind="product.fileType">
+			</small>
+			<p data-ng-bind="product.description"></p>
+		</li>
+	</ul>
+	<div data-ng-hide="!products || products.length">
+		<p>There's nothing here...</p>
+	<div>
+</section>

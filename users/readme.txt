@@ -1,0 +1,1 @@
+This folder holds files that handle all user related logic.

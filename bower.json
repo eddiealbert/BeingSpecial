@@ -1,0 +1,11 @@
+{
+  "name": "MEAN1",
+  "version": "0.0.3",
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-route": "~1.4.1",
+    "angular-resource": "~1.4.1",
+    "angular-bootstrap": "~0.13.0",
+    "ngcart": "~0.0.3-rc.2"
+  }
+}

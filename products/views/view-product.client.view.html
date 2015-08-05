@@ -1,0 +1,55 @@
+<section data-ng-controller="ProductsController" data-ng-init="findOne()">
+	<nav class="navbar navbar-default" role="navigation" style="background-color:black">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://localhost:3000/#!/"><font color="white">Advocate of Choice</font></a>
+		</div>
+		<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+      
+			<ul class="nav navbar-nav">
+				<li><a href="http://localhost:3000/#!/products"><font color="white">Products</font></a></li>
+				<li><a href="http://localhost:3000/#!/library"><font color="white">Library</font></a></li>
+				
+				<li>
+					<a href="http://www.beingspecialnyc.com/"><font color="white">Home</font></a>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li data-ng-show="!authentication.user"><a href="/signup"><font color="white">Signup</font></a></li>
+				<li data-ng-show="!authentication.user"><a href="/signin"><font color="white">Signin</font></a></li>
+				
+				<li data-ng-show="authentication.user"><a href="/signout"><font color="white">Signout</font></a></li>
+			</ul>
+		</div>
+	</nav>
+	<div style="margin-left: 100px;">
+	<h1 data-ng-bind="product.name"></h1>
+	<!-- add data-ng-show="authentication.user.role == admin" after div-->
+	<div>
+		<a href="/#!/products/{{product._id}}/edit">edit</a>
+		<a href="#" data-ng-click="delete();">delete</a>
+	</div>
+	<small style="margin-bottom: 10px;">
+		<em>Posted on</em>
+		<em data-ng-bind="product.created | date:'mediumDate'"></em>
+	</small>
+	<p data-ng-bind="product.description"></p>
+	<div style="overflow: hidden ">
+		<h4 style="float: left; margin-right: 5px">File Type: </h4>
+		<h4 data-ng-bind="product.fileType" style="float: none"></h4>
+	</div>
+	<!-- add a buy button if the user does not own the product -->
+	<div style="overflow: hidden">
+		<h4 style="float: left;">Price: $</h4>
+		<h4 data-ng-bind="product.price"></h4>
+	</div>
+	<br>
+	<button type="button">Purchase</button>
+	</div>
+</section>

@@ -1,0 +1,44 @@
+<section data-ng-controller="ProductsController" data-ng-init="findOne()">
+	<nav class="navbar navbar-default" role="navigation" style="background-color:black">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://localhost:3000/#!/"><font color="white">Advocate of Choice</font></a>
+		</div>
+		<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+      
+			<ul class="nav navbar-nav">
+				<li><a href="http://localhost:3000/#!/products"><font color="white">Products</font></a></li>
+				<li><a href="http://localhost:3000/#!/library"><font color="white">Library</font></a></li>
+				
+				<li>
+					<a href="http://www.beingspecialnyc.com/"><font color="white">Home</font></a>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li data-ng-show="!authentication.user"><a href="/signup"><font color="white">Signup</font></a></li>
+				<li data-ng-show="!authentication.user"><a href="/signin"><font color="white">Signin</font></a></li>
+				
+				<li data-ng-show="authentication.user"><a href="/signout"><font color="white">Signout</font></a></li>
+			</ul>
+		</div>
+	</nav>
+	<div style="overflow: hidden;">
+		<div style="float: left;width: 30%;margin-left:100px;margin-right:50px;">
+			<h1 data-ng-bind="product.name" style="margin-top: 200px"></h1>
+			<p data-ng-bind="product.description"></p>
+		</div>
+		<div style="float: none; width: auto;">
+			<video ng-src="{{product.fPath}}" controls style="width: 600px;height: 600px;margin-top:0;"></video>
+		</div>
+	</div>
+	<br>
+	
+	
+	<!-- add a buy button if the user does not own the product -->
+</section>

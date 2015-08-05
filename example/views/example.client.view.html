@@ -1,0 +1,70 @@
+<section ng-app = mainApplicationModuleName ng-controller="ExampleController">
+	<nav class="navbar navbar-default" role="navigation" style="background-color:black">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://localhost:3000/#!/"><font color="white">Advocate of Choice</font></a>
+		</div>
+		<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+      
+			<ul class="nav navbar-nav">
+				<li><a href="http://localhost:3000/#!/products"><font color="white">Products</font></a></li>
+				<li><a href="http://localhost:3000/#!/library"><font color="white">Library</font></a></li>
+				
+				<li>
+					<a href="http://www.beingspecialnyc.com/"><font color="white">Home</font></a>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li data-ng-show="!authentication.user"><a href="/signup"><font color="white">Signup</font></a></li>
+				<li data-ng-show="!authentication.user"><a href="/signin"><font color="white">Signin</font></a></li>
+				
+				<li data-ng-show="authentication.user"><a href="/signout"><font color="white">Signout</font></a></li>
+			</ul>
+		</div>
+	</nav>
+	<div data-ng-show="authentication.user">
+			<h1 style="margin-left:100px;">Hello <span data-ng-bind="authentication.user.firstName"></span>!</h1>
+	</div>
+	<br>
+	<div style="overflow: hidden;">
+		<div style="float: left;width: 30%;margin-left:100px;margin-right:50px;margin-top:150px">
+			<p>Welcome to Advocate of Choice!  This site is an extension of BeingSpecialNYC where you can purchase e-learning modules and e-books.  For more information about this site and our mission, please watch the video on your right.  You can also visit our home site by clicking 
+			<a href= http://www.beingspecialnyc.com/>here</a>.</p>
+		</div>
+		<div style="float: none; width: auto;">
+			<video poster="img/intro.png" ng-src="media/introduction.mp4" style="width: 50%" controls></video>
+		</div>
+	</div>
+	
+</section>
+
+<!--<section ng-app = mainApplicationModuleName ng-controller="ExampleController">
+	<div data-ng-show="authenication.user">
+			<h1>Hello <span data-ng-bind="authentication.user.firstName"></span></h1>
+			<ul>
+				<li><a href="/http://localhost:3000/#!/products">List Products</a></li>
+				<li><a href="http://localhost:3000/#!/products/create">Create Product</a></li>
+			</ul>
+	</div>
+</section>-->
+
+<!--<section ng-controller="ExampleController">
+	<div data-ng-show="!authentication.user">
+		<a href="/signup">Signup</a>
+		<a href="/signin">Signin</a>
+	</div>
+	<div data-ng-show="authentication.user">
+		<h1>Hello <span data-ng-bind="authentication.user.firstName"</span></h1>
+		<a href="/signout">Signout</a>
+		<ul>
+			<li><a href="/#!/products">List Products</a></li>
+			<li><a href="/#!/products/create">Create Product</a></li>
+		</ul>
+	</div>
+</section>-->
