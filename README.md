@@ -1,2 +1,2 @@
 # BeingSpecial
-A prototype website built using the MEAN Stack for the owner of Being Special NYC.  The site provides users with the ability to add or delete products.
+A prototype website built using the MEAN Stack for the owner of Being Special NYC.  The site provides users with the ability to add or delete products.  To run this you must have Node.js installed along with MongoDB.  Once you do that you must go to the directory where this project is located.  In the command line you have to 'npm update' and 'bower update' to get all of the necessary dependencies. You can then type 'node server.js' to run this application.
